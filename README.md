@@ -1,5 +1,8 @@
 # ApiExample3
 
+Employs the use of a fake-backend.  If 'fakeBackendProvider' is included as a provider then 'fake' data is returned.  
+Refer to http://jasonwatmore.com/post/2016/11/24/angular-2-mockbackend-example-for-backendless-development
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
 ## Development server

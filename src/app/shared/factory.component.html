@@ -1,0 +1,21 @@
+    <div class='panel-body'>
+
+        <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+        <div class='table-responsive'>
+            <table class='table' *ngIf='prodFactories && prodFactories.length'>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let f of prodFactories'>
+                        <td>{{ f.id }}</td>
+                        <td>{{ f.factoryName }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

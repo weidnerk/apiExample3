@@ -1,0 +1,51 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}<br>
+    </div>
+
+    <!-- Filter the Products   -->
+    <div class='panel-body'>
+
+        <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+        <div class='table-responsive'>
+            <table class='table table-hover' *ngIf='products && products.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class='btn btn-primary' (click)='toggleImage()'>
+                                {{showImage ? 'Hide' : 'Show'}} Image
+                            </button>
+                        </th>
+                        <th>Product</th>
+                        <th>Code</th>
+                        <th>Available</th>
+                        <th>Price</th>
+                        <th>Factories</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let product of products'>
+                        <td>
+                            <img *ngIf='showImage'
+                                 [src]='product.imageUrl'
+                                 [title]='product.productName | uppercase'
+                                 [style.width.px]='imageWidth' 
+                                 [style.margin.px]='imageMargin'>
+                        </td>
+                        <td> 
+                            {{product.productName}}
+                        </td>
+                        <td>{{ product.productCode | lowercase }}</td>
+                        <td>{{ product.releaseDate }}</td>
+                        <td>{{ product.price | currency:'USD':true:'1.2-2' }}</td>
+                        <td>
+                            <ai-factory [prodFactories]='product.factories'>
+                            </ai-factory>
+                       </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
